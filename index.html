@@ -10,6 +10,8 @@
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       text-align: center;
       padding: 20px;
+      overflow-x: hidden;
+      position: relative;
     }
     h1 {
       color: #fff;
@@ -23,6 +25,9 @@
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       animation: fadeIn 1s ease;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
     img {
       width: 220px;
@@ -48,6 +53,22 @@
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
+    }
+
+    /* corações caindo */
+    .coracao {
+      position: fixed;
+      top: -10px;
+      font-size: 24px;
+      color: #ff4d6d;
+      animation: cair linear forwards;
+      z-index: 0;
+    }
+    @keyframes cair {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -90,6 +111,22 @@
       todas.forEach(div => div.style.display = 'none');
       document.getElementById(id).style.display = 'block';
     }
+
+    // Função para criar corações caindo
+    function criarCoracao() {
+      const coracao = document.createElement('div');
+      coracao.classList.add('coracao');
+      coracao.innerText = '💖';
+      coracao.style.left = Math.random() * 100 + 'vw';
+      coracao.style.animationDuration = (2 + Math.random() * 3) + 's';
+      document.body.appendChild(coracao);
+
+      setTimeout(() => {
+        coracao.remove();
+      }, 5000);
+    }
+
+    setInterval(criarCoracao, 400); // cria coração a cada 0.4s
   </script>
 </body>
 </html>
