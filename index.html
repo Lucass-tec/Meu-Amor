@@ -1,139 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Andressa 💖</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      text-align: center;
-      padding: 20px;
-      overflow-x: hidden;
-      position: relative;
-    }
-    h1 {
-      color: #fff;
-      text-shadow: 2px 2px 5px #00000050;
-    }
-    .declaracao {
-      display: none;
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      animation: fadeIn 1s ease;
-      max-width: 500px;
-    }
-    img {
-      width: 220px;
-      border-radius: 15px;
-      margin-top: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    img:hover {
-      transform: scale(1.05);
-    }
-    button {
-      background: #ff4d6d;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      margin: 10px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #e6004c;
-      transform: scale(1.1);
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    /* corações caindo */
-    .coracao {
-      position: fixed;
-      top: -10px;
-      font-size: 24px;
-      color: #ff4d6d;
-      animation: cair linear forwards;
-      z-index: 10;
-      pointer-events: none;
-    }
-    @keyframes cair {
-      to {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Andressa 💖</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+  }
+  h1 {
+    color: #fff;
+    text-shadow: 2px 2px 5px #00000050;
+  }
+  .declaracao, .menu, .preparada {
+    display: none;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    max-width: 500px;
+  }
+  img {
+    width: 220px;
+    border-radius: 15px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  img:hover { transform: scale(1.05); }
+  button {
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: #e6004c;
+    transform: scale(1.1);
+  }
+  .coracao {
+    position: fixed;
+    top: -10px;
+    font-size: 24px;
+    color: #ff4d6d;
+    animation: cair linear forwards;
+    z-index: 10;
+    pointer-events: none;
+  }
+  @keyframes cair {
+    to { transform: translateY(110vh); opacity: 0; }
+  }
+</style>
 </head>
 <body>
-  <h1>💌 Para Andressa 💌</h1>
-  <p>Clique nos botões e veja minhas declarações para você</p>
-  
+<h1>💌 Para Andressa 💌</h1>
+
+<div class="menu" id="menuInicial" style="display:block;">
+  <button onclick="voceMeAma()">Para a minha florzinha, que eu amo muito, porque ela é única 🌸<br>— Criado por seu príncipe 💖</button>
+</div>
+
+<div class="preparada" id="preparada">
+  <p>Está preparada?</p>
+  <button onclick="mostrarDeclaracoes()">SIM</button>
+</div>
+
+<div class="menu" id="menuDeclaracoes">
+  <p>Então vamos lá! Decida qual quer ler primeiro:</p>
   <button onclick="mostrar('d1')">Primeira declaração</button>
   <button onclick="mostrar('d2')">Segunda declaração</button>
   <button onclick="mostrar('d3')">Terceira declaração</button>
   <button onclick="mostrar('d4')">Quarta declaração</button>
+</div>
 
-  <div id="d1" class="declaracao">
-    <h2>✨ Minha primeira declaração ✨</h2>
-    <p>Andressa, você é a razão do meu sorriso todos os dias 💕.</p>
-    <img src="img/foto1.jpg.webp" alt="Minha foto" onclick="surpresa('Essa foto é só pra você, meu amor 💖')">
-  </div>
+<div id="d1" class="declaracao">
+  <h2>✨ Minha primeira declaração ✨</h2>
+  <p>Andressa, você é a razão do meu sorriso todos os dias 💕.</p>
+  <img src="img/foto1.jpg.webp" alt="Minha foto">
+</div>
 
-  <div id="d2" class="declaracao">
-    <h2>🌹 Minha segunda declaração 🌹</h2>
-    <p>Estar com você é como viver num sonho do qual nunca quero acordar 😍.</p>
-    <img src="img/foto2.webp.jpg" alt="Minha foto" onclick="surpresa('Cada momento contigo é mágico 🌟')">
-  </div>
+<div id="d2" class="declaracao">
+  <h2>🌹 Minha segunda declaração 🌹</h2>
+  <p>Estar com você é como viver num sonho do qual nunca quero acordar 😍.</p>
+  <img src="img/foto2.webp.jpg" alt="Minha foto">
+</div>
 
-  <div id="d3" class="declaracao">
-    <h2>💖 Minha terceira declaração 💖</h2>
-    <p>Com você, até os dias comuns se tornam especiais 🥰.</p>
-    <img src="img/foto3.webp.jpg" alt="Minha foto" onclick="surpresa('Você faz meu coração bater mais forte ❤️')">
-  </div>
+<div id="d3" class="declaracao">
+  <h2>💖 Minha terceira declaração 💖</h2>
+  <p>Com você, até os dias comuns se tornam especiais 🥰.</p>
+  <img src="img/foto3.webp.jpg" alt="Minha foto">
+</div>
 
-  <div id="d4" class="declaracao">
-    <h2>🌟 Minha quarta declaração 🌟</h2>
-    <p>Prometo sempre estar ao seu lado, cuidando e te amando cada vez mais ❤️.</p>
-    <img src="img/foto4.webp.jpg" alt="Minha foto" onclick="surpresa('Sempre juntos, meu amor eterno 💞')">
-  </div>
+<div id="d4" class="declaracao">
+  <h2>🌟 Minha quarta declaração 🌟</h2>
+  <p>Prometo sempre estar ao seu lado, cuidando e te amando cada vez mais ❤️.</p>
+  <img src="img/foto4.webp.jpg" alt="Minha foto">
+</div>
 
-  <script>
-    function mostrar(id) {
-      let todas = document.querySelectorAll('.declaracao');
-      todas.forEach(div => div.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-    }
+<script>
+function voceMeAma() {
+  document.getElementById('menuInicial').style.display = 'none';
+  document.getElementById('preparada').style.display = 'block';
+}
 
-    // Função para criar corações caindo
-    function criarCoracao() {
-      const coracao = document.createElement('div');
-      coracao.classList.add('coracao');
-      coracao.innerText = '💖';
-      coracao.style.left = Math.random() * 100 + 'vw';
-      coracao.style.animationDuration = (2 + Math.random() * 3) + 's';
-      document.body.appendChild(coracao);
-      setTimeout(() => coracao.remove(), 5000);
-    }
+function mostrarDeclaracoes() {
+  document.getElementById('preparada').style.display = 'none';
+  document.getElementById('menuDeclaracoes').style.display = 'block';
+}
 
-    setInterval(criarCoracao, 400);
+function mostrar(id) {
+  let todas = document.querySelectorAll('.declaracao');
+  todas.forEach(div => div.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+}
 
-    // Função de surpresa ao clicar na foto
-    function surpresa(mensagem) {
-      alert(mensagem);
-      for (let i = 0; i < 20; i++) criarCoracao(); // chuva extra de corações
-    }
-  </script>
+// Função para criar corações caindo
+function criarCoracao() {
+  const coracao = document.createElement('div');
+  coracao.classList.add('coracao');
+  coracao.innerText = '💖';
+  coracao.style.left = Math.random() * 100 + 'vw';
+  coracao.style.animationDuration = (2 + Math.random() * 3) + 's';
+  document.body.appendChild(coracao);
+  setTimeout(() => coracao.remove(), 5000);
+}
+setInterval(criarCoracao, 400);
+</script>
 </body>
 </html>
