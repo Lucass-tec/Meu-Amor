@@ -32,6 +32,11 @@
       border-radius: 15px;
       margin-top: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    img:hover {
+      transform: scale(1.05);
     }
     button {
       background: #ff4d6d;
@@ -83,25 +88,25 @@
   <div id="d1" class="declaracao">
     <h2>✨ Minha primeira declaração ✨</h2>
     <p>Andressa, você é a razão do meu sorriso todos os dias 💕.</p>
-    <img src="img/foto1.webp" alt="Minha foto">
+    <img src="img/foto1.jpg.webp" alt="Minha foto" onclick="surpresa('Essa foto é só pra você, meu amor 💖')">
   </div>
 
   <div id="d2" class="declaracao">
     <h2>🌹 Minha segunda declaração 🌹</h2>
     <p>Estar com você é como viver num sonho do qual nunca quero acordar 😍.</p>
-    <img src="img/foto2.webp" alt="Minha foto">
+    <img src="img/foto2.webp.jpg" alt="Minha foto" onclick="surpresa('Cada momento contigo é mágico 🌟')">
   </div>
 
   <div id="d3" class="declaracao">
     <h2>💖 Minha terceira declaração 💖</h2>
     <p>Com você, até os dias comuns se tornam especiais 🥰.</p>
-    <img src="img/foto3.webp" alt="Minha foto">
+    <img src="img/foto3.webp.jpg" alt="Minha foto" onclick="surpresa('Você faz meu coração bater mais forte ❤️')">
   </div>
 
   <div id="d4" class="declaracao">
     <h2>🌟 Minha quarta declaração 🌟</h2>
     <p>Prometo sempre estar ao seu lado, cuidando e te amando cada vez mais ❤️.</p>
-    <img src="img/foto4.webp" alt="Minha foto">
+    <img src="img/foto4.webp.jpg" alt="Minha foto" onclick="surpresa('Sempre juntos, meu amor eterno 💞')">
   </div>
 
   <script>
@@ -119,13 +124,16 @@
       coracao.style.left = Math.random() * 100 + 'vw';
       coracao.style.animationDuration = (2 + Math.random() * 3) + 's';
       document.body.appendChild(coracao);
-
-      setTimeout(() => {
-        coracao.remove();
-      }, 5000);
+      setTimeout(() => coracao.remove(), 5000);
     }
 
-    setInterval(criarCoracao, 400); // cria coração a cada 0.4s
+    setInterval(criarCoracao, 400);
+
+    // Função de surpresa ao clicar na foto
+    function surpresa(mensagem) {
+      alert(mensagem);
+      for (let i = 0; i < 20; i++) criarCoracao(); // chuva extra de corações
+    }
   </script>
 </body>
 </html>
